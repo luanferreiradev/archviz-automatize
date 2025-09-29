@@ -30,7 +30,7 @@ public class TextWriter implements FileWriter {
     }
 
     private Path getDestinationFolder() {
-        return Path.of(rootFolder.toString(), fileName + "." + fileExtension);
+        return rootFolder.resolve(fileName + "." + fileExtension);
     }
 
     @Override

@@ -39,7 +39,7 @@ public class Main {
         System.out.print("Inform the folder: ");
         String rootPath = sc.nextLine();
 
-        new RenderScriptService(rootPath).create();
+        new RenderScriptService(Path.of(rootPath)).create();
     }
 }
 
