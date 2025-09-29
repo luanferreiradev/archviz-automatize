@@ -1,9 +1,11 @@
 import com.devandcode.files.reader.BatchRead;
 import com.devandcode.files.writer.BatchWrite;
+import com.devandcode.service.FolderStructureService;
 import com.devandcode.service.RenderScriptService;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -18,12 +20,13 @@ public class Main {
     }
 
     public static void chooseOperation(Scanner sc) {
-        System.out.println("Inform the operation: (1) Create Render Script; (2) Clear Logs;");
+        System.out.println("Inform the operation: (1) Create Render Script; (2) Create Folder Structure; (3) Clear Logs;");
         int option = sc.nextInt();
         sc.nextLine();
         switch (option) {
             case 1 -> createRenderScript(sc);
-            case 2 -> clearLogs(sc);
+            case 2 -> createFolderStructure(sc);
+            case 3 -> clearLogs(sc);
         }
     }
 
@@ -40,6 +43,15 @@ public class Main {
         String rootPath = sc.nextLine();
 
         new RenderScriptService(Path.of(rootPath)).create();
+    }
+
+    public static void createFolderStructure(Scanner sc) {
+        List<String> subFolders = List.of("Imagens", "Referências", "Blocos", "Proxys", "Xrefs");
+        System.out.print("Inform the folder: ");
+        String rootPath = sc.nextLine();
+        FolderStructureService folderStructureService = new FolderStructureService(
+                Path.of(rootPath), "skp", subFolders);
+        folderStructureService.create();
     }
 }
 
