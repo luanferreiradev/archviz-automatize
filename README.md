@@ -5,7 +5,7 @@ This project was created to automatize some tasks at my archviz job.
 It is not a general purpose tool, it was created for my specifc needs , however some of its functionalities may be usefull to someone.
 
 ---
-# Funcionalities
+# Functionalities
 
 It has the following capabilities:
 
@@ -15,7 +15,7 @@ It has the following capabilities:
 - **List Projects:** Lists all projects and enumerates them starting from 0.
 
 ---
-## Observation
+## Important
 
 Note that **all methods (except clear logs)** must receive a root path containing all projects. Example:
 
